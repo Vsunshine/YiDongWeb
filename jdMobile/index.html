@@ -84,9 +84,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:;">
+                        <a href="./sort.html">
                             <img src="./image/nav_8.png" alt="">
-                            <span>理财</span>
+                            <span>全部分类</span>
                         </a>
                     </li>
                 </ul>
@@ -97,7 +97,7 @@
                 <div class="djs">
                     <h3>掌上秒杀</h3>
                     <div class="time">
-                        <span>00</span>:
+                        <span>03</span>:
                         <span>00</span>:
                         <span>00</span>
                     </div>
@@ -494,7 +494,31 @@
     </div>
     <script src="./js/iscroll.js"></script>
     <script>
-    var myScroll = new IScroll('#wrapper');
+        // var myScroll = new IScroll('#wrapper');
+        var span = document.querySelectorAll('.main-ms .djs .time span');
+        var zsj = 10800;
+
+        djs(span[0], span[1], span[2], zsj);
+
+        function djs(h, m, s, sj) {
+
+            var timer = setInterval(function () {
+                if (sj < 0) {
+                    clearInterval(timer);
+                    return;
+                }
+                var h1 = Math.floor(sj / 60 / 60);
+                var m1 = Math.floor(sj / 60 % 60);
+                var s1 = Math.floor(sj % 60);
+                h1 = h1 <= 9 ? '0' + h1 : h1;
+                m1 = m1 <= 9 ? '0' + m1 : m1;
+                s1 = s1 <= 9 ? '0' + s1 : s1;
+                h.innerHTML = h1;
+                m.innerHTML = m1;
+                s.innerHTML = s1;
+                sj--;
+            }, 1000)
+        }
     </script>
 </body>
 
