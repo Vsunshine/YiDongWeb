@@ -432,7 +432,6 @@ footer span {
 }
 
 .main-ztj li a{
-    display: inline-block;
     float: left;
 }
 .main-ztj li .yiban{
@@ -548,7 +547,6 @@ footer span {
     font-size: 13px;
     color: #ccc;
     border: 1px solid #ccc;
-    display: inline-block;
     padding: 2px;
     border-radius: 5px;
     box-sizing: border-box;
@@ -588,7 +586,6 @@ footer span {
 }
 .main-dlzc a{
     float: left;
-    display: inline-block;
     color: #848689;
     font-size: 13px;
     width: 15%;

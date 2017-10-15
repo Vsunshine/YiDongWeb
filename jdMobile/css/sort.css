@@ -42,7 +42,6 @@ header .header-tou input{
     padding:0 10px;
 }
 header .header-tou a:first-child{
-    display: inline-block;
     float: left;
     height: 22px;
     width: 20px;
