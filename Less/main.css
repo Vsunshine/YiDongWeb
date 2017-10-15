@@ -1,0 +1,14 @@
+body {
+  background: bink;
+  font-size: 18px;
+}
+aside,
+main {
+  padding: 10px;
+  height: 20px;
+}
+main {
+  color: #ccc;
+  background-color: #fff;
+  font-size: 13px;
+}

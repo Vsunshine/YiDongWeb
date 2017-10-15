@@ -1,0 +1,150 @@
+@import './setting.less';
+body{
+    background: @primaryColor;
+    font-size: @FontSize;
+}
+// 嵌套规则: 嵌套尽量不要超过3层
+// .container h1 {
+//   font-size: 25px;
+//   color: #E45456;
+// }
+
+// .container p {
+//   font-size: 25px;
+//   color: #3C7949;
+// }
+
+// .container .myclass h1 {
+//   font-size: 25px;
+//   color: #E45456;
+// }
+// .container .myclass p {
+//   font-size: 25px;
+//   color: #3C7949;
+// }
+
+// .container {
+//     h1{
+//         font-size: 25px;
+//         color: #E45456;
+//     }
+//     p{
+//         font-size: 25px;
+//         color: #3C7949;
+//     }
+//     .myclass{
+//         h1{
+//             font-size: 25px;
+//             color: #E45456;
+//         }
+//         p{
+//             font-size: 25px;
+//             color: #3C7949;
+//         }
+//     }
+// }
+
+// 父选择器
+// a {
+//   color:yellowgreen;
+// }
+// a:link {  
+//   color: black;  
+// }  
+// a:visited {  
+//   color:blue;  
+// }  
+// a:hover {  
+//   color: orange;  
+// }  
+// a:active {  
+//   color: pink;  
+// }  
+
+// a{
+//     color: @primaryColor;
+//     &:link{
+//         color: black; 
+//     }
+//     &:visited{
+//         color: black; 
+//     }
+//     &:hover{
+//         color: black; 
+//     }
+//     &:active{
+//         color: black; 
+//     }
+// }
+
+// 格式: .混合器的名字(参数) {}
+// a {
+//   color:yellowgreen;
+// }
+// a:link {  
+//   color: black;  
+// }  
+// a:visited {  
+//   color:blue;  
+// }  
+// a:hover {  
+//   color: orange;  
+// }  
+// a:active {  
+//   color: pink;  
+// }  
+
+// .chang(){
+//       color:yellowgreen;
+//       &:link {  
+//         color: black;  
+//       }  
+//       &:visited {  
+//         color:blue;  
+//       }  
+//       &:hover {  
+//         color: orange;  
+//       }  
+//       &:active {  
+//         color: pink;  
+//       }  
+// }
+// a{
+//     .chang();
+// }
+
+// 有参的
+// .chang(@primaryColor,@primaryColor,@primaryColor,@primaryColor,@primaryColor){
+//     color:@primaryColor;
+//     &:link {  
+//       color: @primaryColor;  
+//     }  
+//     &:visited {  
+//       color:@primaryColor;  
+//     }  
+//     &:hover {  
+//       color: @primaryColor;  
+//     }  
+//     &:active {  
+//       color: @primaryColor;  
+//     }  
+// }
+// a{
+//     .chang(@primaryColor, @primaryColor, @primaryColor, @primaryColor, @primaryColor);
+// }
+
+// 继承(少用)
+// 格式: &:extend(选择器)
+// 当一个元素的最多有一两句代码不一样再去用继承
+
+aside {
+    padding: 10px;
+    height: 20px;
+  }
+  main {
+    color:#ccc;
+    background-color:#fff;
+    &:extend(aside);
+    font-size: @FontSize - 5;
+  }
+  
