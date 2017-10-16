@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 10rem;
+            height: 10rem;
+            background: pink;
+        }
+        @media screen and (width:320px) {
+            html {
+                /* 设置不同设备的基准值； */
+                font-size: calc(320px/20);
+            }
+        }
+
+        @media screen and (width:360px) {
+            html {
+                font-size: calc(360px/20);
+            }
+        }
+
+        @media screen and (width:375px) {
+            html {
+                font-size: calc(375px/20);
+            }
+        }
+
+        @media screen and (width:414px) {
+            html {
+                font-size: calc(414px/20);
+            }
+        }
+
+        .box{
+            width: 100%;
+            height: 33rem;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        // 1. touches  屏幕上触点的个数的列表
+		// 2. targetTouches  绑定事件的元素上触点的个数的列表
+		// 3. changedTouches 手指离开的时候触点的个数的列表
+        var box = document.querySelector('.box');
+        box.addEventListener('touchstart',function(e){
+            box.innerHTML = 'touches:'+ e.touches.length+'<br>'+'targetTouches:'+ e.targetTouches.length+'<br>'+'changedTouches:'+ e.changedTouches.length
+        })
+        box.addEventListener('touchend',function(e){
+            box.innerHTML = 'touches:'+ e.touches.length+'<br>'+'targetTouches:'+ e.targetTouches.length+'<br>'+'changedTouches:'+ e.changedTouches.length
+        })
+        box.addEventListener('touchmove',function(e){
+            box.innerHTML = 'touches:'+ e.touches.length+'<br>'+'targetTouches:'+ e.targetTouches.length+'<br>'+'changedTouches:'+ e.changedTouches.length
+        })
+        box.addEventListener('click',function(e){
+            console.dir(e);
+        })
+    </script>
+</body>
+
+</html>

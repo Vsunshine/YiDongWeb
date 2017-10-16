@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        .click{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+        .tap{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: skyblue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="click"></div>
+        <div class="tap"></div>
+    </div>
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/fastclick.js"></script>
+    <script>
+        //这里会发生点透
+        //点击tap ， click 也会被触发；
+        $('.tap').tap(function(){
+            $(this).hide();
+            console.log('tap触发');
+        })
+        $('.click').click(function(){
+            console.log('click触发');
+        })
+
+        //解决方法1： 设置视口；
+        //解决方法2： 用fastclick插件；
+        FastClick.attach(document.body);
+    </script>
+</body>
+</html>

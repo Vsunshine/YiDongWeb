@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 10rem;
+            height: 10rem;
+            background: pink;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        @media screen and (width:320px) {
+            html {
+                /* 设置不同设备的基准值； */
+                font-size: calc(320px/20);
+            }
+        }
+
+        @media screen and (width:360px) {
+            html {
+                font-size: calc(360px/20);
+            }
+        }
+
+        @media screen and (width:375px) {
+            html {
+                font-size: calc(375px/20);
+            }
+        }
+
+        @media screen and (width:414px) {
+            html {
+                font-size: calc(414px/20);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        var stX,stY,enX,enY,le,to;
+        box.addEventListener('touchstart',function (e) {  
+            var toc = e.targetTouches[0];
+            stX = toc.clientX;
+            stY = toc.clientY;
+
+            le = this.offsetLeft;
+            to = this.offsetTop;
+        })
+        box.addEventListener('touchmove',function (e) {  
+            var toc = e.targetTouches[0];
+            enX = toc.clientX;
+            enY = toc.clientY;
+
+            this.style.left = le + (enX - stX)  + 'px';
+            this.style.top = to + (enY - stY) + 'px';
+        })
+    </script>
+</body>
+
+</html>

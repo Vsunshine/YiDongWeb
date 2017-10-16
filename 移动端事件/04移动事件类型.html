@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @media screen and (width:320px) {
+            html {
+                /* 设置不同设备的基准值； */
+                font-size: calc(320px/20);
+            }
+        }
+
+        @media screen and (width:360px) {
+            html {
+                font-size: calc(360px/20);
+            }
+        }
+
+        @media screen and (width:375px) {
+            html {
+                font-size: calc(375px/20);
+            }
+        }
+
+        @media screen and (width:414px) {
+            html {
+                font-size: calc(414px/20);
+            }
+        }
+
+        div{
+            width: 100%;
+            height: 10rem;
+            background: #ccc;
+        }
+        div i{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <i class="start"></i>
+        <i class="end"></i>
+        <i class="move"></i>
+    </div>
+
+    <script>
+        // touchstart,touchmove,touchend
+        var start = document.querySelector('.start');
+        var move = document.querySelector('.move');
+        var endx = document.querySelector('.end');
+        var div = document.querySelector('div');
+        var colors = ['red', 'blue', 'green'];
+        var key = 0;
+
+        // 手指刚触摸上屏幕发生的事件    
+        div.addEventListener('touchstart',function(){
+            start.innerHTML = 'start';
+            endx.innerHTML = ' ';
+        })
+        // 手指在屏幕上移动的事件
+        div.addEventListener('touchmove',function(){
+            move.innerHTML = 'move';
+            endx.innerHTML = ' ';
+            start.innerHTML = ' ';
+            this.style.backgroundColor = colors[++key % colors.length];
+        })
+        div.addEventListener('touchend',function(){
+            start.innerHTML = ' ';
+            endx.innerHTML = 'end';
+            
+        })
+    </script>
+</body>
+</html>

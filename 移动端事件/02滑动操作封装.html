@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滑动操作封装</title>
+    <style>
+        @media screen and (width:320px) {
+            html {
+                /* 设置不同设备的基准值； */
+                font-size: calc(320px/20);
+            }
+        }
+
+        @media screen and (width:360px) {
+            html {
+                font-size: calc(360px/20);
+            }
+        }
+
+        @media screen and (width:375px) {
+            html {
+                font-size: calc(375px/20);
+            }
+        }
+
+        @media screen and (width:414px) {
+            html {
+                font-size: calc(414px/20);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var startX, startY, endX, endY;
+        var docu = document.documentElement;
+        docu.addEventListener('touchstart',function (e) {  
+            var tocu = e.targetTouches[0];
+            startX = tocu.clientX;
+            startY = tocu.clientY;
+        })
+        docu.addEventListener('touchend',function (e) {  
+            var tocu = e.changedTouches[0];
+            endX = tocu.clientX;
+            endY = tocu.clientY;
+
+            var shuchu = Math.abs(endX - startX) > Math.abs(endY - startY)?
+                            endX > startX ? '向右' : '向左'
+                            :
+                            endY > startY ? '向下' : '向上';
+            console.log(shuchu);
+                         
+        })
+    </script>
+</body>
+
+</html>

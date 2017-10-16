@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 设置视口可以解决click事件延时300ms的问题 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 10rem;
+            height: 10rem;
+            background: pink;
+        }
+        @media screen and (width:320px) {
+            html {
+                /* 设置不同设备的基准值； */
+                font-size: calc(320px/20);
+            }
+        }
+
+        @media screen and (width:360px) {
+            html {
+                font-size: calc(360px/20);
+            }
+        }
+
+        @media screen and (width:375px) {
+            html {
+                font-size: calc(375px/20);
+            }
+        }
+
+        @media screen and (width:414px) {
+            html {
+                font-size: calc(414px/20);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        var startX, startY, endX, endY, startTime, endTime;
+        box.addEventListener('touchstart', function (e) {
+            var touc = e.targetTouches[0];
+             startX = touc.clientX;
+             startY = touc.clientY;
+             startTime = new Date().getTime();
+        })
+        box.addEventListener('touchend', function (e) {
+            var touc = e.changedTouches[0];
+             endX = touc.clientX;
+             endY = touc.clientY;
+             endTime = new Date().getTime();
+
+            console.time('ye');
+            if (Math.abs(startX - endX) < 5 && Math.abs(startY - endY) < 5 && Math.abs(startTime - endTime) <
+                300) {
+                console.log('点击封装完成');
+            }
+        })
+
+        // <!-- 设置视口可以解决click事件延时300ms的问题 -->
+        box.addEventListener('click',function () {  
+            console.timeEnd('ye');
+            console.log('click');
+        })
+    </script>
+</body>
+
+</html>
