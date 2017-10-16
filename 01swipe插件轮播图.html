@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .swipe {
+            width: 100%;
+            overflow: hidden;
+            visibility: hidden;
+            position: relative;
+        }
+
+        .swipe-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .swipe-wrap>li {
+            float: left;
+            width: 100%;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="swipe" class="swiped">
+        <ul class="swipe-wrap">
+            <li>
+                <img src="./触屏轮播图/image/0.png" alt="">
+            </li>
+            <li>
+                <img src="./触屏轮播图/image/1.png" alt="">
+            </li>
+            <li>
+                <img src="./触屏轮播图/image/2.png" alt="">
+            </li>
+            <li>
+                <img src="./触屏轮播图/image/3.png" alt="">
+            </li>
+            <li>
+                <img src="./触屏轮播图/image/4.png" alt="">
+            </li>
+            <li>
+                <img src="./触屏轮播图/image/5.png" alt="">
+            </li>
+            <li>
+                <img src="./触屏轮播图/image/6.png" alt="">
+            </li>
+            <li>
+                <img src="./触屏轮播图/image/7.png" alt="">
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="./js/swipe.js"></script>
+    <script>
+        window.mySwipe = new swipe(document.getElementById('swipe'), {
+            speed: 400,
+            auto: 1000
+        });
+    </script>
+</body>
+
+</html>

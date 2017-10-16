@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css.css">
+    <title>c触屏轮播图</title>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <img src="./image/0.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./image/1.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./image/2.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./image/3.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./image/4.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./image/5.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./image/6.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./image/7.png" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var box = document.getElementsByClassName('box')[0];
+        var ull = box.getElementsByTagName('ul')[0];
+        var lii = ull.getElementsByTagName('li');
+        var firstLi = lii[0];
+        var lastLi = lii[lii.length - 1];
+        var int = 0,
+            timer,
+            startX,
+            endX,
+            boxWidth;
+        // 添加第一个图片和最后一个图片
+        ull.appendChild(firstLi.cloneNode(true));
+        ull.insertBefore(lastLi.cloneNode(true), firstLi);
+
+        function init() {
+            width();
+            //设置初始的图片
+            int--;
+            ull.style.left = int * boxWidth + 'px';
+            autoPlay();
+        }
+        //滚动
+        function autoPlay() {
+            timer = setInterval(function () {
+                int--;
+                ull.style.left = int * boxWidth + 'px';
+                ull.style.transition = 'all 1s';
+            }, 1500);
+        }
+
+        function width() {
+            //盒子宽
+            boxWidth = box.offsetWidth;
+            // ul的宽
+            ull.style.width = boxWidth * lii.length + 'px';
+            for (var i = 0; i < lii.length; i++) {
+                // li的宽
+                lii[i].style.width = boxWidth + 'px';
+            }
+        }
+
+        ull.addEventListener('webkitTransitionEnd', function () {
+            console.log(1);
+            if (int == -9) {
+                int = -1;
+            }
+            if (int == 0) {
+                int = -8;
+            }
+            ull.style.left = int * boxWidth + 'px';
+            ull.style.transition = '';
+        })
+
+        ull.addEventListener('touchstart', function (e) {
+            clearInterval(timer);
+            var toc = e.targetTouches[0];
+            startX = toc.clientX;
+            e.preventDefault();
+        })
+        ull.addEventListener('touchend', function (e) {
+            autoPlay();
+            var toc = e.changedTouches[0];
+            endX = toc.clientX;
+            endX > startX ? int++ : int--;
+            ull.style.left = int * boxWidth + 'px';
+            ull.style.transition = 'all 1s';
+        })
+
+
+
+
+
+
+
+
+
+        init();
+    </script>
+</body>
+
+</html>
