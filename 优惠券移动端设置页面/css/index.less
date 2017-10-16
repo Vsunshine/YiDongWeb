@@ -1,0 +1,91 @@
+// 兼容各个移动端浏览器样式
+@import './normalize.less';
+// 清除默认样式
+@import url('./reset.less');
+// 变量清单
+@import url('./setting.less');
+
+@media screen and (width:320px) {
+    html{
+        font-size: 320px/20;
+    }
+}
+@media screen and (width:360px) {
+    html{
+        font-size: 360px/20;
+    }
+}
+@media screen and (width:375px) {
+    html{
+        font-size: 375px/20;
+    }
+}
+@media screen and (width:414px) {
+    html{
+        font-size: 414px/20;
+    }
+}
+
+
+
+body{
+    background: @bodyColor;
+    margin: 0;
+}
+
+header{
+    .heade();
+}
+
+// 全场优惠i
+public{
+    width: 100%;
+    box-sizing: border-box;
+}
+main{
+    padding: (25rem/32);
+    &:extend(public);
+    .qcyh{
+        width: 100%;
+        .qcyh-1{
+            padding-top: (25rem/32);
+            overflow: hidden;
+            &:extend(public);
+            h3{
+                float: left;
+                color: @h3Color;
+                font-weight: normal;
+            }
+            span{
+                float: right;
+                color: #888;
+
+            }
+        }
+        .qcyh-2{
+            &:extend(public);
+            height:(224rem/32);
+            margin-top: (25rem/32);
+            border: 3px dashed @boderColoe;
+            background: @headerFontColor url('../image/add.png') no-repeat;
+            background-position: center 0.84375rem;
+            background-size: (224rem/32/2);
+            text-align: center;
+            span{
+                display: inline-block;
+                color: @spanColor;
+                font-size: (26rem/32);
+                margin-top: (165rem/32);
+            }
+        }
+
+    }
+
+    // 提示
+    .ts{
+        margin-top: 3.75rem;
+        font-size: 0.75rem;
+        color: #999;
+        line-height: 1.25rem;
+    }
+}
