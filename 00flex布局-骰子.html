@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            border-radius: 20px;
+            background-color: #cccccc;
+            float: left;
+            padding: 15px;
+            margin: 15px;
+        }
+
+        span {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: #000;
+            border-radius: 50%;
+        }
+        /* <!-- 一个 --> */
+
+        .demo1 {
+            display: flex;
+            /* 与主轴的对齐方式 */
+            justify-content: center;
+            /* 与交叉轴对齐方式 */
+            align-items: center;
+        }
+        /* <!-- 两个两端对齐 --> */
+
+        .demo2 {
+            display: flex;
+            /* 主轴方向设置 */
+            flex-direction: column;
+            /* 与主轴的对齐方式 */
+            /* ：两端对齐，项目之间的间隔都相等。 */
+            justify-content: space-between;
+            /* 与交叉轴对齐方式    改变这个值可以上下左右切换*/
+            align-items: center;
+        }
+        /* <!-- 两个斜着对齐 --> */
+
+        .demo3 {
+            display: flex;
+            /* 与主轴的对齐方式 */
+            /*space-between ：两端对齐，项目之间的间隔都相等。 */
+            justify-content: space-between;
+            /* 与交叉轴对齐方式    改变这个值可以上下左右切换*/
+            /* align-items: center; */
+        }
+
+        .demo3 span:nth-child(2) {
+            /* align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性 */
+            align-self: flex-end;
+        }
+        /* <!-- 两个斜着对齐 --> */
+
+        .demo4 {
+            display: flex;
+            /* 与主轴的对齐方式 */
+            /*space-between ：两端对齐，项目之间的间隔都相等。 */
+            justify-content: space-between;
+            /* 与交叉轴对齐方式    改变这个值可以上下左右切换*/
+            /* align-items: center; */
+        }
+
+        .demo4 span:nth-child(2) {
+            /* align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性 */
+            align-self: center;
+        }
+
+        .demo4 span:nth-child(3) {
+            /* align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性 */
+            align-self: flex-end;
+        }
+        /* 四个 */
+
+        .demo5 {
+            display: flex;
+            /* flex-wrap属性定义，如果一条轴线排不下，如何换行。 */
+            flex-wrap: wrap;
+            /* align-content属性定义了多根轴线的对齐方式 */
+            align-content: space-between;
+        }
+
+        .column {
+            /* flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间 */
+            flex-basis: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        /* 五个 */
+
+        .demo6 {
+            display: flex;
+            /* flex-wrap属性定义，如果一条轴线排不下，如何换行。 */
+            flex-wrap: wrap;
+            /* align-content属性定义了多根轴线的对齐方式 */
+            align-content: space-between;
+            justify-content: center;
+        }
+
+        .demo6 .column {
+            /* flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间 */
+            flex-basis: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        /* 六个点 */
+        .demo7 {
+            display: flex;
+            /* flex-wrap属性定义，如果一条轴线排不下，如何换行。 */
+            flex-wrap: wrap;
+            /* align-content属性定义了多根轴线的对齐方式 */
+            align-content: space-between;
+        }
+
+        .demo7 .column {
+            /* flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间 */
+            flex-basis: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 一个 -->
+    <div class="box demo1">
+        <span></span>
+    </div>
+    <!-- 两个两端对齐 -->
+    <div class="box demo2">
+        <span></span>
+        <span></span>
+    </div>
+    <!-- 两个斜着对齐 -->
+    <div class="box demo3">
+        <span></span>
+        <span></span>
+    </div>
+    <!-- 三个对齐 -->
+    <div class="box demo4">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <!-- 四个 -->
+    <div class="box demo5">
+        <div class="column">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="column">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- 五个点 -->
+    <div class="box demo6">
+        <div class="column">
+            <span></span>
+            <span></span>
+        </div>
+        <span></span>
+        <div class="column">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- 六个点 -->
+    <div class="box demo7">
+        <div class="column">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="column">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</body>
+
+</html>
