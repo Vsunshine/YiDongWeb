@@ -1,0 +1,285 @@
+// 兼容各个移动端浏览器样式
+@import './normalize.less';
+// 清除默认样式
+@import url('./reset.less');
+// 变量清单
+@import url('./setting.less');
+
+@media screen and (width:320px) {
+    html{
+        font-size: 320px/20;
+    }
+}
+@media screen and (width:360px) {
+    html{
+        font-size: 360px/20;
+    }
+}
+@media screen and (width:375px) {
+    html{
+        font-size: 375px/20;
+    }
+}
+@media screen and (width:414px) {
+    html{
+        font-size: 414px/20;
+    }
+}
+
+body{
+    background: @bodyColor;
+    margin: 0;
+}
+
+header{
+    .heade();
+}
+
+// 全场优惠i
+public{
+    width: 100%;
+    box-sizing: border-box;
+}
+main{
+    padding: (25rem/32);
+    font-family: @fontFamily;
+    &:extend(public);
+    .qcyh{
+        width: 100%;
+        .qcyh-1{
+            padding-top: (25rem/32);
+            overflow: hidden;
+            &:extend(public);
+            h3{
+                float: left;
+                color: @h3Color;
+                font-weight: normal;
+            }
+            span{
+                float: right;
+                color: @spanColor;
+            }
+        }
+        .qcyh-2{
+            width: 100%;
+            height: (350rem/32);
+            background: @headerFontColor;
+            margin-top: (25rem/32); 
+            border-radius: (10rem/32);
+            box-shadow: 0px 1px 15px 1px @boxshowColor;
+            .qcyh-2-ys{
+                width: 100%;
+                height: 70%;
+                background: url('../image/yhjpj.png') no-repeat;
+                background-position: top center;
+                background-size: contain;
+            }
+        }
+
+    }
+
+    .qcyh-2-ys {
+        padding: (25rem/32);
+        box-sizing: border-box;
+        color: @headerFontColor;
+        position: relative;
+        .ys-left{
+            // position: relative;
+            height: 80%;
+            h2{
+                font-size: (50rem/32);
+                font-weight: 300;
+            }
+            span{
+                display: block; 
+                font-size: (26rem/32);
+                font-weight: normal;
+            }
+            .span1{
+                opacity: 0.5;
+                letter-spacing: 1px;
+                margin-top: (10rem/32);
+            }
+            .span2{
+                position: absolute;
+                bottom: (40rem/32);
+                left: (29rem/32);
+                padding-left: (35rem/32);
+                background: url('../image/nz.png')no-repeat;
+                background-position: left;
+                background-size: contain;
+                letter-spacing: -1px;
+            }
+        }
+        .ys-right{
+
+            img{
+                position: absolute;
+                top: -(18rem/32);
+                right: -(8rem/32);
+                width: (156rem/32);
+                height: (156rem/32);
+            }
+            span{
+                position: absolute;
+                bottom: (35rem/32);
+                font-size: (22rem/32);
+                font-weight: 500;
+                letter-spacing: 1px;
+                right: (25rem/32);
+                display: block;
+                background: rgba(0, 0, 0, 0.5);
+                padding: (7rem/32);
+                border-radius: (8rem/32);
+                color: rgba(255, 255, 255, 0.7)
+
+            }
+        } 
+    }
+
+    .qcyh-3-db{
+        padding: 0 (25rem/32) (25rem/32) (25rem/32);
+        box-sizing: border-box;
+        height: 30%;
+        display: flex;
+        a{
+            text-align: center; 
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span{
+                display: inline-block;
+                padding-left: 40px; 
+                color: @spanColor;
+                font-family: @fontFamily;
+            }
+        }
+        a:nth-child(1){
+            border-right: 1px solid #ccc;
+            box-sizing: border-box;
+            span{
+                background: url('../image/xie.png') no-repeat;
+                background-size: contain;
+                background-position: left;
+            }
+        }
+        a:nth-child(2){
+            span{
+                background: url('../image/fenxiang.png') no-repeat;
+                background-size: contain;
+                background-position: left;
+            }
+        }
+    }
+
+    // 优惠券紫色第一个
+    #yhj-zi-1 {
+        height: (223rem/32);
+        border-radius: (10rem/32);
+        .qcyh-2-ys{
+            background: url('../image/zise.png') no-repeat;
+            background-size: contain;
+            height: 100%;
+        }
+        h2{
+             font-size: (32rem/32);
+             span{
+                 display: inline-block;
+             }
+             span:nth-child(1){
+                 font-size: (70rem/32);
+             }
+             span:nth-child(2){
+                 opacity: 0.7;
+             } 
+        }
+        .span1{
+            margin-top: (32rem/32);
+            opacity: 1;
+            letter-spacing: -0.3px;
+        }
+        .span2{
+            bottom: (15rem/32);
+        }
+        .ys-right span{
+            bottom: (22rem/32);
+        }
+    }
+
+    // 满20
+    #man20{
+        background-image: url('../image/zise2.png');
+        h2{
+            font-size: (32rem/32);
+            span{
+                display: inline-block;
+            }
+            span:nth-child(1){
+                font-size: (70rem/32);
+            }
+            span:nth-child(2){
+                opacity: 0.7;
+            } 
+       }
+       .span1{
+           margin-top: (32rem/32);
+           opacity: 1;
+           letter-spacing: -0.3px;
+       }
+       .span2{
+           bottom: (35rem/32);
+       }
+
+    }
+    #lanmu{
+        a:nth-child(1){
+            span{
+                background-image: url('../image/zuofei.png');
+                padding-left: (40rem/32);
+            }
+        }
+        a:nth-child(2){
+            border-right: 1px solid #ccc;
+            box-sizing: border-box;
+            span{
+                background-image: url('../image/yulan.png');
+            }
+        }
+        a:nth-child(3){
+            span{
+                padding-left: (40rem/32);
+                background-image: url('../image/fenxiang2.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+
+    #guangjia{
+            width: 100%;
+            .qcyh-2{
+                &:extend(public);
+                height:(224rem/32);
+                margin-top: (25rem/32);
+                border: 3px dashed @boderColoe;
+                background: @headerFontColor url('../image/add.png') no-repeat;
+                background-position: center 0.84375rem;
+                background-size: (224rem/32/2);
+                text-align: center;
+                span{
+                    display: inline-block;
+                    color: @spanColor;
+                    font-size: (26rem/32);
+                    margin-top: (165rem/32);
+                }
+            }
+    }
+    // 提示
+    .ts{
+        margin-top: 3.75rem;
+        font-size: 0.75rem;
+        color: #999;
+        line-height: 1.25rem;
+    }
+}
