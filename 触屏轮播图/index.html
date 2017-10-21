@@ -95,7 +95,7 @@
                 lii[i].style.width = boxWidth + 'px';
             }
         }
-
+        var fla = false;
         ull.addEventListener('webkitTransitionEnd', function () {
             console.log(1);
             if (int == -9) {
@@ -106,6 +106,7 @@
             }
             ull.style.left = int * boxWidth + 'px';
             ull.style.transition = '';
+            fla = false;
         })
 
         ull.addEventListener('touchstart', function (e) {
@@ -115,6 +116,10 @@
             e.preventDefault();
         })
         ull.addEventListener('touchend', function (e) {
+            if(fla == true){
+                return false;
+            }
+            fla = true;
             autoPlay();
             var toc = e.changedTouches[0];
             endX = toc.clientX;
